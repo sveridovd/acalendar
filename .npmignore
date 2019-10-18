@@ -8,4 +8,4 @@ src/
 .gitignore
 .travis.yml
 webpack.dev.js
-webpack.lib.umd
+webpack.lib.umd.js
