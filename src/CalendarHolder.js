@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Calendar } from "./Calendar.jsx";
+import { Calendar } from "./Calendar.js";
 
 let holders = [];
 

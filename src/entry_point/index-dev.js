@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Calendar } from "../Calendar.jsx";
-import { CalendarHolder } from "../CalendarHolder.jsx";
+import { Calendar } from "../Calendar.js";
+import { CalendarHolder } from "../CalendarHolder.js";
 
 class TestElement extends React.Component {
     render() {

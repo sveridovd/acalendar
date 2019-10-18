@@ -1,5 +1,5 @@
-import { Calendar } from "./Calendar.jsx";
-import { CalendarHolder } from "./CalendarHolder.jsx";
+import { Calendar } from "./Calendar.js";
+import { CalendarHolder } from "./CalendarHolder.js";
 
 export {
 	Calendar,

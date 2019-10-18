@@ -17,7 +17,7 @@ import {
 	ContentDays,
 	ContentMonths,
 	ContentYears
-} from "./subcomponents/calendar.jsx";
+} from "./subcomponents/calendar.js";
 
 import { LEFT, RIGHT} from "./resources/svg.js"
 
