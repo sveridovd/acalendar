@@ -1,4 +1,3 @@
-import "./style/DarkTheme.css";
 import { Calendar } from "./Calendar.jsx";
 import { CalendarHolder } from "./CalendarHolder.jsx";
 
