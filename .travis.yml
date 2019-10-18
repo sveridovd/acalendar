@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - 12.12.0
+
+before_script:
+  - git config --local user.name "$GIT_NAME"
+  - git config --local user.email "$GIT_EMAIL"
+
+script:
+  - npm run test
+  - npm run babel
+
+deploy:
+  - provider: npm
+    email: $GIT_EMAIL
+    api_key: $NPM_KEY
+    skip_cleanup: true
+    on:
+      tags: true
+      branch: master

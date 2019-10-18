@@ -1,0 +1,230 @@
+.atcalendar {
+	width: 300px;
+
+	background: #333333;
+
+	color: #e7e7e7;
+	font-size: 14px;
+
+	font-family: Georgia, "Times New Roman", Times, serif;
+
+	user-select: none;
+	-moz-user-select: none;
+}
+
+/*
+	Today
+*/
+
+.atcalendar__choosen {
+	padding: 10px 20px;
+	text-align: center;
+}
+
+.atcalendar__choosen__icon {
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: top;
+}
+
+.atcalendar__choosen__date {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	color: #e8e8e8;
+}
+
+/* 
+	HEAD
+*/
+
+.atcalendar__head {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 36px;
+
+	padding: 10px 0;	
+}
+
+.atcalendar__head__center {
+	display: flex;
+	flex-direction: column;
+}
+
+.atcalendar__head__prev-month,
+.atcalendar__head__next-month {
+	width: 20px;
+	margin: 0;
+	padding: 0;
+
+	border-radius: 0;
+	background: none;
+	border: none;
+
+	cursor: pointer;
+	outline: none;
+}
+
+.atcalendar__head__center__month {
+	text-align: center;
+	font-weight: bold;
+	color: #e8e8e8;
+
+	border-top: 1px solid transparent;
+
+	margin: 10px 0;
+}
+
+.atcalendar__week-days {
+	list-style: none;
+	margin: 0;
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 0 20px;
+	color: #a4a4a4;
+
+	justify-content: center;
+
+	font-size: 12px;
+}
+
+.atcalendar__week-days__item {
+	width: 30px;
+	text-align: center;
+	margin: 2px;
+}
+
+/* 
+	DATES
+*/
+
+.atcalendar__dates {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px 20px;
+	margin: 0;
+	list-style: none;
+	font-size: 14px;
+
+	justify-content: center;
+}
+
+.atcalendar__dates__item {
+	width: 30px;
+	line-height: 30px;
+	height: 29px;
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 1px;
+	margin: 2px;
+}
+
+.atcalendar__dates__item.empty {
+	cursor: inherit;
+	background: transparent !important;
+}
+
+.atcalendar__dates__item.active {
+	background: #515151;
+}
+
+.atcalendar__dates__item.choosen {
+	background: #00a82e;
+}
+
+.atcalendar__dates__item:hover {
+	background: #6f6f6f;
+}
+
+/* 
+	MONTHS
+*/
+
+.atcalendar__months {
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 10px 20px;
+	margin: 0;
+
+	list-style: none;
+
+	font-size: 14px;
+}
+
+.atcalendar__months__item {
+	width: 33%;
+	box-sizing: border-box;
+	text-align: center;
+
+	line-height: 30px;
+	height: 30px;
+
+	cursor: pointer;
+}
+
+.atcalendar__months__item__number-of-month {
+	font-size: 10px;
+}
+
+.atcalendar__months__item.active {
+	background: #515151;
+}
+
+.atcalendar__months__item:hover {
+	background: #6f6f6f;
+}
+
+/* 
+	YEARS
+*/
+
+.atcalendar__years {
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 10px 20px;
+	margin: 0;
+
+	list-style: none;
+
+	font-size: 14px;
+}
+
+.atcalendar__years__item {
+	width: 25%;
+	box-sizing: border-box;
+	text-align: center;
+
+	line-height: 30px;
+	height: 30px;
+
+	cursor: pointer;
+}
+
+.atcalendar__years__item.active {
+	background: #515151;
+}
+
+.atcalendar__years__item:hover {
+	background: #6f6f6f;
+}
+
+
+/* UMD */
+
+.atcalendar-holder {
+	position: relative;
+}
+
+.clickable {
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+.clickable:hover {
+	opacity: 0.6;
+}

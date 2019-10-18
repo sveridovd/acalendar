@@ -1,0 +1,26 @@
+.atcalendar {
+	background: #cccccc;
+	color: #4b4b4b;
+}
+
+.atcalendar__week-days {
+	color: #6f6e6e;
+}
+
+.atcalendar__today__date {
+	color: #4b4b4b;
+}
+
+.atcalendar__head__center__month {
+	color: #4b4b4b;
+}
+
+.atcalendar__dates__item.choosen {
+	background: #99e3ae;
+}
+
+.atcalendar__years__item:hover,
+.atcalendar__months__item:hover,
+.atcalendar__dates__item:hover {
+	background: #f4f4f4;
+}
