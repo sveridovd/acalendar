@@ -1,7 +1,7 @@
 import React from "react";
 import Renderer from "react-test-renderer";
 import moment from "moment";
-import { Calendar } from "../src/Calendar.jsx";
+import { Calendar } from "../src/Calendar.js";
 
 test('Calendar creating', () => {
 	const component = React.createElement(Calendar, {
