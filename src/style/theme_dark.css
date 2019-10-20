@@ -23,8 +23,12 @@
 
 .atcalendar__choosen__icon {
 	display: inline-block;
-	margin-right: 10px;
-	vertical-align: top;
+	margin-right: 5px;
+	width: 12px;
+	height: 12px;
+
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADcSURBVHgB7VOxDYMwEHzM07ukZARGIBMkG5ANskI2CCNkE8gG3gAKJChpaXDuI1tySFKgNCly0uufO/5sxD9RgHEcK4RFtH3f56E2DMPZa6gLzyt6ximOYxFNkiT7UIiiqGTmA3KjlCo9z3DLQF5Q6wfB3C3LMllrjzitCDwycBNy57Qa+cYg5KUDvSJzQZ80HFzwWpnn+Qohf9eFm1VrU3bfJ1c2ngzrEOAlGdej8Zyzb0jTdEcbIH8CJrWiL/E3+AUDP0hadmJLIxZKBokY22cwohom7RYDN5XNHfEna+N4xoaHAAAAAElFTkSuQmCC');
+	background-size: 12px 12px;
 }
 
 .atcalendar__choosen__date {
@@ -55,15 +59,29 @@
 .atcalendar__head__prev-month,
 .atcalendar__head__next-month {
 	width: 20px;
+	height: 12px;
+
 	margin: 0;
 	padding: 0;
 
 	border-radius: 0;
-	background: none;
 	border: none;
 
 	cursor: pointer;
 	outline: none;
+
+	background-color: transparent;
+	background-size: 8px 10px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.atcalendar__head__prev-month {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACLSURBVHgBfY+xDcMgEEV9pzRUcQeU3sDZIBslG8SZxKt4A0bAHYiGAZDAhyUkC538C/TRfzwJGJhYa0chxIKIBvvROfem0VD91Pujf9WGlhMIIcw555Xq3BvRe/+l0XDjCQDAc7gJSin/pZSJ+s4C9dBa70qpiWwLC7RUG/39dbUBp40xjimlH8HbAScWKe4lT7JlAAAAAElFTkSuQmCC');
+}
+
+.atcalendar__head__next-month {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACPSURBVHgBdY6xDYMwEEXxmQFSWZbcsAIbZJMkG7BJkgmSDWADGIERqGzZFZ0by+aQsGSJ41enu3f//8pa22utu+pCkFK6AcAbwZ8xpjkBeUDwyRgbnXMPEjjUxBj/pRtQudkNoTsJZHHO1yvg471vhRBzXW7Rdg0hvJRSA1VywoJtedxV49eCpTop5ZfK2gD2CT28I+SAeQAAAABJRU5ErkJggg==');
 }
 
 .atcalendar__head__center__date,
@@ -80,7 +98,7 @@
 
 .atcalendar__head__center__date > span:first-child {
 	display: inline-block;
-	padding-left: 10px;
+	padding-right: 5px;
 }
 
 .atcalendar__week-days {
