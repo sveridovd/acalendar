@@ -15,7 +15,7 @@ class CalendarTest extends React.Component {
 	}
 
 	onChange(date) {
-		this.setState(date);
+		this.setState({date});
 	}
 
 	render() {
@@ -24,7 +24,8 @@ class CalendarTest extends React.Component {
 }
 
 test("Calendar", () => {
-	const renderer = Renderer.create(<CalendarTest date={moment("13/10/2019 12:00", "DD/MM/YYYY hh:mm")}/>);
+	const ref = React.createRef();
+	const renderer = Renderer.create(<CalendarTest ref={ref} date={moment("13/10/2019 12:00", "DD/MM/YYYY hh:mm")}/>);
 	const root = renderer.root;
 	const calendarTest = root.instance;
 	const calendar = root.findByType(Calendar).instance;
@@ -77,4 +78,16 @@ test("Calendar", () => {
 		expect(atcalendar__head__center__date.children[1].children[0]).toBe("2017");
 		expect(renderer.toJSON()).toMatchSnapshot();
 	}
+
+	{
+		ref.current.onChange(moment("25/11/2013", "DD/MM/YYYY"));
+
+		let atcalendar__choosen__date = root.findByProps({
+			className: "atcalendar__choosen__date"
+		});
+
+		expect(atcalendar__choosen__date.children[0].children).toEqual([ 'November', ' ', '2013', ', ', 'Mon', ' ', '25' ]);
+		expect(renderer.toJSON()).toMatchSnapshot();
+	}
+
 });

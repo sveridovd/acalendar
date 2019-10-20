@@ -1225,3 +1225,323 @@ exports[`Calendar 5`] = `
   </ul>
 </div>
 `;
+
+exports[`Calendar 6`] = `
+<div
+  className="atcalendar"
+>
+  <div
+    className="atcalendar__choosen"
+  >
+    <div
+      className="atcalendar__choosen__icon"
+    />
+    <div
+      className="atcalendar__choosen__date"
+    >
+      <span>
+        November
+         
+        2013
+        , 
+        Mon
+         
+        25
+      </span>
+    </div>
+  </div>
+  <div
+    className="atcalendar__head"
+  >
+    <button
+      className="atcalendar__head__prev-month"
+      disabled={false}
+      onClick={[Function]}
+    />
+    <div
+      className="atcalendar__head__center"
+    >
+      <div
+        className="atcalendar__head__center__date"
+      >
+        <span
+          className="clickable"
+          onClick={[Function]}
+        >
+          November
+        </span>
+        <span
+          className="clickable"
+          onClick={[Function]}
+        >
+          2013
+        </span>
+      </div>
+    </div>
+    <button
+      className="atcalendar__head__next-month"
+      disabled={false}
+      onClick={[Function]}
+    />
+  </div>
+  <ul
+    className="atcalendar__week-days"
+  >
+    <li
+      className="atcalendar__week-days__item"
+    >
+      Sun
+    </li>
+    <li
+      className="atcalendar__week-days__item"
+    >
+      Mon
+    </li>
+    <li
+      className="atcalendar__week-days__item"
+    >
+      Tue
+    </li>
+    <li
+      className="atcalendar__week-days__item"
+    >
+      Wed
+    </li>
+    <li
+      className="atcalendar__week-days__item"
+    >
+      Thu
+    </li>
+    <li
+      className="atcalendar__week-days__item"
+    >
+      Fri
+    </li>
+    <li
+      className="atcalendar__week-days__item"
+    >
+      Sat
+    </li>
+  </ul>
+  <ul
+    className="atcalendar__dates"
+  >
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      1
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      2
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      3
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      4
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      5
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      6
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      7
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      8
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      9
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      10
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      11
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      12
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      13
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      14
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      15
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      16
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      17
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      18
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      19
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      20
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      21
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      22
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      23
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      24
+    </li>
+    <li
+      className="atcalendar__dates__item choosen "
+      onClick={[Function]}
+    >
+      25
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      26
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      27
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      28
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      29
+    </li>
+    <li
+      className="atcalendar__dates__item "
+      onClick={[Function]}
+    >
+      30
+    </li>
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+    <li
+      className="atcalendar__dates__item empty"
+    />
+  </ul>
+</div>
+`;

@@ -51,7 +51,7 @@ export class Calendar extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.date && this.props.date !== prevProps.date) {
+		if (this.props.date && !this.props.date.isSame(prevProps.date, "days")) {
 			this.setState({
 				showedMoment: this.props.date,
 				choosenMoment: this.props.date
