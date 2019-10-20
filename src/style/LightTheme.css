@@ -1,26 +1,249 @@
 .atcalendar {
-	background: #cccccc;
-	color: #4b4b4b;
+	width: 300px;
+
+	background: #ebebeb;
+
+	color: #000;
+	font-size: 14px;
+
+	font-family: Georgia, "Times New Roman", Times, serif;
+
+	user-select: none;
+	-moz-user-select: none;
+}
+
+/*
+	Today
+*/
+
+.atcalendar__choosen {
+	padding: 10px 20px;
+	text-align: center;
+}
+
+.atcalendar__choosen__icon {
+	display: inline-block;
+	margin-right: 5px;
+	width: 12px;
+	height: 12px;
+
+  	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADPSURBVHgB7VPBEYIwENxACqAESqCE2IDagXZgC3YgJdiBoxYAdkAHUAINwLlBohH4MH58sDO53N3ebmaYA/BxlRQ3Ed4lLpIMuKPHGdcOvoYUDoyG3QIamwG3g2DLO0fIvIemW8x4Yh5xACQrNKiZ73H/vMQ6prjmqdB2XMb7oSkwnfMQigIrmoLjFIwekS3OjMmkUJAyxn7LGdQ8RT+Edz5+Gd5cxDpxBgXWaoU5sN9HkAX4EYvBPxi89sAuhf0n5sBqOoOGSxSyCFFiPvIn13FDjDk33KoAAAAASUVORK5CYII=');
+	background-size: 12px 12px;
+}
+
+.atcalendar__choosen__date {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+}
+
+/*
+	HEAD
+*/
+
+.atcalendar__head {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 36px;
+
+	padding: 10px 0;
+}
+
+.atcalendar__head__center {
+	display: flex;
+	flex-direction: column;
+}
+
+.atcalendar__head__prev-month,
+.atcalendar__head__next-month {
+	width: 20px;
+	height: 12px;
+
+	margin: 0;
+	padding: 0;
+
+	border-radius: 0;
+	border: none;
+
+	cursor: pointer;
+	outline: none;
+
+	background-color: transparent;
+	background-size: 8px 10px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.atcalendar__head__prev-month {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB7SURBVHgBfY/hDUAwEEa/O/6zgg1qAxMQk7ABJjGChAVsYAWLSF3RRPTi/Wrz7l5agsZkUzB6RNg4kIstnAChcdc42LK38MSPNCJH2TLfIGO27ZM02nNYkgl+YFQ04EAm510fcNS0o6RMar0+4Llr+btGWvb6coROiusJMXIdu1xjp3gAAAAASUVORK5CYII=');
+}
+
+.atcalendar__head__next-month {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB9SURBVHgBdY5tDYNAEETfEQRUAhZwUAdNFbR1gJO2CloH1w8BIAEJSMAALEMICSF7k7wfl3m3u/C3yM8qEsnEQdwlvYhWeMKaq141X7ukBAgU4r2dluFnmRbtmBLW9L4w8hAl59Dm+x8M3FR8vCMbleW2nJNjdKLiFJ7etgk7iCOzcKdoVQAAAABJRU5ErkJggg==');
+}
+
+.atcalendar__head__center__date,
+.atcalendar__head__center__month
+.atcalendar__head__center__year {
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+
+	border-top: 1px solid transparent;
+
+	margin: 10px 0;
+}
+
+.atcalendar__head__center__date > span:first-child {
+	display: inline-block;
+	padding-right: 5px;
 }
 
 .atcalendar__week-days {
-	color: #6f6e6e;
+	list-style: none;
+	margin: 0;
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 0 20px;
+	color: #000;
+
+	justify-content: center;
+
+	font-size: 12px;
 }
 
-.atcalendar__today__date {
-	color: #4b4b4b;
+.atcalendar__week-days__item {
+	width: 30px;
+	text-align: center;
+	margin: 2px;
 }
 
-.atcalendar__head__center__month {
-	color: #4b4b4b;
+/*
+	DATES
+*/
+
+.atcalendar__dates {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px 20px;
+	margin: 0;
+	list-style: none;
+	font-size: 14px;
+
+	justify-content: center;
+}
+
+.atcalendar__dates__item {
+	width: 30px;
+	line-height: 30px;
+	height: 29px;
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 1px;
+	margin: 2px;
+}
+
+.atcalendar__dates__item.empty {
+	cursor: inherit;
+	background: transparent !important;
+}
+
+.atcalendar__dates__item.active {
+		background: #515151;
 }
 
 .atcalendar__dates__item.choosen {
-	background: #99e3ae;
+	background: #00a8f1;
+	color: #fff;
 }
 
-.atcalendar__years__item:hover,
-.atcalendar__months__item:hover,
 .atcalendar__dates__item:hover {
-	background: #f4f4f4;
+	background: #cdcdcd;
+	color: #000;
+}
+
+/*
+	MONTHS
+*/
+
+.atcalendar__months {
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 10px 20px;
+	margin: 0;
+
+	list-style: none;
+
+	font-size: 14px;
+}
+
+.atcalendar__months__item {
+	width: 33%;
+	box-sizing: border-box;
+	text-align: center;
+
+	line-height: 30px;
+	height: 30px;
+
+	cursor: pointer;
+}
+
+.atcalendar__months__item__number-of-month {
+	font-size: 10px;
+}
+
+.atcalendar__months__item:hover {
+	background: #cdcdcd;
+}
+
+/*
+	YEARS
+*/
+
+.atcalendar__years {
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 10px 20px;
+	margin: 0;
+
+	list-style: none;
+
+	font-size: 14px;
+}
+
+.atcalendar__years__item {
+	width: 25%;
+	box-sizing: border-box;
+	text-align: center;
+
+	line-height: 30px;
+	height: 30px;
+
+	cursor: pointer;
+}
+
+.atcalendar__years__item:hover {
+	background: #cdcdcd;
+}
+
+
+/* UMD */
+
+.atcalendar-holder {
+	position: relative;
+}
+
+.clickable {
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+.clickable:hover {
+	opacity: 0.6;
 }

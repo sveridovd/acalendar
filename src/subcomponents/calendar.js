@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment";
-import { CALENDAR, TIME } from "../resources/svg.js"
 import {
 	MODE_YEAR,
 	MODE_MONTH,
@@ -12,7 +11,7 @@ import {
 export function Choosen({weekdays, months, choosenMoment}) {
 	return (
 		<div className="atcalendar__choosen">
-			<div className="atcalendar__choosen__icon" dangerouslySetInnerHTML={{__html: CALENDAR}}/>
+			<div className="atcalendar__choosen__icon"/>
 			<div className="atcalendar__choosen__date">
 				{ choosenMoment &&
 					<span>{months[choosenMoment.month()]} {choosenMoment.year()}, {weekdays[choosenMoment.day()]} {choosenMoment.date()}</span>
@@ -32,9 +31,8 @@ export function Header({mode, months, showedMoment, showMode}) {
 				mode === MODE_DAY &&
 				<>
 					<div className="atcalendar__head__center">
-						<div className="atcalendar__head__center__month">
+						<div className="atcalendar__head__center__date">
 							<span onClick={() => showMode(MODE_MONTH)} className={"clickable"}>{months[showedMoment.month()]}</span>
-							&nbsp;
 							<span onClick={() => showMode(MODE_YEAR)} className={"clickable"}>{showedMoment.year()}</span>
 						</div>
 					</div>
@@ -53,8 +51,8 @@ export function Header({mode, months, showedMoment, showMode}) {
 			{
 				mode === MODE_YEAR &&
 				<div className="atcalendar__head__center">
-					<div className="atcalendar__head__center__month">
-						Choose year
+					<div className="atcalendar__head__center__year">
+						<span>Choose year</span>
 					</div>
 				</div>
 			}
@@ -92,14 +90,13 @@ export function ContentDays({weekdays, daysInMonth, showedMoment, choosenMoment,
 	);
 }
 
-export function ContentMonths({months, showedMoment, choosenMoment, onChooseMonth}) {
+export function ContentMonths({months, onChooseMonth}) {
 	return (
 		<ul className="atcalendar__months">
 			{
 				months.map((month, i) => (
 					<li key={i} className={cssClassHelper({
-						"atcalendar__months__item": true,
-						"choosen": moment(showedMoment).month(month).isSame(choosenMoment, "day")
+						"atcalendar__months__item": true
 					})} onClick={() => onChooseMonth(month)}>{month} 
 						<sup className="atcalendar__months__item__number-of-month"> {formatNumberOfMonth(i + 1)}</sup>
 					</li>
@@ -116,7 +113,6 @@ export function ContentYears({years, onChooseYear}) {
 				years.map((year) => (
 					<li key={year} className={cssClassHelper({
 						"atcalendar__years__item": true,
-						// "choosen": this.state.choosenDate === year
 					})} onClick={() => onChooseYear(year)}>{year}</li>
 				))
 			}

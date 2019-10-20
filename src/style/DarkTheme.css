@@ -66,7 +66,9 @@
 	outline: none;
 }
 
-.atcalendar__head__center__month {
+.atcalendar__head__center__date,
+.atcalendar__head__center__month
+.atcalendar__head__center__year {
 	text-align: center;
 	font-weight: bold;
 	color: #e8e8e8;
@@ -74,6 +76,11 @@
 	border-top: 1px solid transparent;
 
 	margin: 10px 0;
+}
+
+.atcalendar__head__center__date > span:first-child {
+	display: inline-block;
+	padding-left: 10px;
 }
 
 .atcalendar__week-days {

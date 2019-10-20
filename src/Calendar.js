@@ -19,8 +19,6 @@ import {
 	ContentYears
 } from "./subcomponents/calendar.js";
 
-import { LEFT, RIGHT} from "./resources/svg.js"
-
 export class Calendar extends React.Component {
 
 	constructor(props) {
@@ -52,19 +50,14 @@ export class Calendar extends React.Component {
 		});
 	}
 
-	static getDerivedStateFromProps(props, state) {
-
-		if (props.date && !props.date.isSame(state.choosenMoment, "days")) {
-			return {
-				showedMoment: moment(props.date),
-				choosenMoment: moment(props.date)
-			};
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		if (this.props.date && this.props.date !== prevProps.date) {
+			this.setState({
+				showedMoment: this.props.date,
+				choosenMoment: this.props.date
+			});
 		}
-
-		return null;
 	}
-
-
 
 	onPrev() {
 
@@ -131,10 +124,10 @@ export class Calendar extends React.Component {
 					throw new Error("Type not found");
 			}
 
-			this.props.onChange
-				&& this.props.onChange(moment(choosenMoment));
-
 			return {choosenMoment, showedMoment, mode};
+		}, () => {
+			this.props.onChange
+				&& this.props.onChange(moment(this.state.choosenMoment));
 		});
 	}
 
@@ -158,7 +151,7 @@ export class Calendar extends React.Component {
 				<div className="atcalendar__head">
 					<button className="atcalendar__head__prev-month"
 						disabled={this.state.mode === MODE_MONTH}
-						onClick={this.onPrev.bind(this)} dangerouslySetInnerHTML={{__html: LEFT}}/>
+						onClick={this.onPrev.bind(this)}/>
 
 					<Header
 						mode={this.state.mode}
@@ -169,7 +162,7 @@ export class Calendar extends React.Component {
 
 					<button className="atcalendar__head__next-month"
 						disabled={this.state.mode === MODE_MONTH}
-						onClick={this.onNext.bind(this)} dangerouslySetInnerHTML={{__html: RIGHT}}/>
+						onClick={this.onNext.bind(this)}/>
 				</div>
 
 				{
@@ -187,8 +180,6 @@ export class Calendar extends React.Component {
 					this.state.mode === MODE_MONTH &&
 					<ContentMonths
 						months={this.months}
-						showedMoment={this.state.showedMoment}
-						choosenMoment={this.state.choosenMoment}
 						onChooseMonth={this.onChoose.bind(this, "month")}
 						/>
 				}
