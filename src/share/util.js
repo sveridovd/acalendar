@@ -1,5 +1,5 @@
 import moment from "moment";
-import { debug } from "./logger.js";
+import memoize from "memoize-one";
 
 export const MODE_YEAR = "YEAR";
 export const MODE_MONTH = "MONTH";
@@ -10,24 +10,23 @@ export const MATRIX_EMPTY_ELEMENT_VAL = "-";
 
 export function cssClassHelper(rules) {
 	let str = "";
-	for (let className in rules) {
+	Object.keys(rules).forEach((className) => {
 		str += rules[className] ? className + " " : "";
-	}
-
-	return str;
+	});
+	return str.trim();
 }
 
-export function generateWithValue(count, val) {
+export const generateWithValue = memoize(function (count, val) {
 	let array = [];
-	for (var i = 0; i < count; ++i) {
+	for (let i = 0; i < count; ++i) {
 		array.push(val);
 	}
 	return array;
-}
+});
 
 export function generateWithFunction(count, func) {
 	let array = [];
-	for (var i = 0; i < count; ++i) {
+	for (let i = 0; i < count; ++i) {
 		array.push(func(i));
 	}
 	return array;
@@ -35,24 +34,16 @@ export function generateWithFunction(count, func) {
 
 export function makeDayMatrix(showedMoment) {
 	const startDay = moment(showedMoment).date(1).day();
-	debug("startDay: ", startDay);
 	const countOfDate = showedMoment.daysInMonth();
-	debug("countOfDate: ", countOfDate);
 
-	let daysInMonth = generateWithValue(startDay, MATRIX_EMPTY_ELEMENT_VAL)
+	return generateWithValue(startDay, MATRIX_EMPTY_ELEMENT_VAL)
 			.concat(generateWithFunction(countOfDate, (i) => i + 1))
 			.concat(generateWithValue(MATRIX_COUNT_ELEMENTS - startDay - countOfDate, MATRIX_EMPTY_ELEMENT_VAL));
-	debug("daysInMonth: ", daysInMonth);
-	return daysInMonth;
 }
 
 export function makeYearsMatrix(showedMoment) {
 	const currentYear = showedMoment.year();
-	debug("currentYear: ", currentYear);
-
-	const years = Array.from(generateWithFunction(20, (i) => i).reverse(), (x) => currentYear - x);
-	debug("years: ", years);
-	return years;
+	return Array.from(generateWithFunction(20, (i) => i).reverse(), (x) => currentYear - x);
 }
 
 export function formatNumberOfMonth(i) {

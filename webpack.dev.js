@@ -19,12 +19,15 @@ module.exports = {
             {
                 test: /\.m?js|\.m?jsx$/,
                 exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/react', '@babel/preset-env']
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/react', '@babel/preset-env']
+                        },
                     },
-                }
+                    'eslint-loader'
+                ]
             },
             {
                 test: /\.css$/i,

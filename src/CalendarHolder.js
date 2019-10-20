@@ -78,5 +78,6 @@ export class CalendarHolder extends React.Component {
 
 CalendarHolder.propTypes = {
 	date: PropTypes.object,
-	onChange: PropTypes.func
+	onChange: PropTypes.func,
+	children: PropTypes.arrayOf(PropTypes.element)
 };

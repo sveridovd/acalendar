@@ -26,13 +26,12 @@ export class Calendar extends React.Component {
 
 		let mode = MODE_DAY;
 
-		this.today = props.today ? props.today : moment();
 		this.months = moment.months();
 		this.weekdays = moment.weekdays().map(day => day.substring(0, 3));
 
 		this.state = Object.assign({
 			mode,
-			showedMoment: (props.date ? moment(props.date) : this.today),
+			showedMoment: (props.date ? moment(props.date) : moment()),
 			choosenMoment: (props.date ? moment(props.date) : null),
 
 			// MODE_YEAR
@@ -50,7 +49,7 @@ export class Calendar extends React.Component {
 		});
 	}
 
-	componentDidUpdate(prevProps, prevState, snapshot) {
+	componentDidUpdate(prevProps) {
 		if (this.props.date && !this.props.date.isSame(prevProps.date, "days")) {
 			this.setState({
 				showedMoment: this.props.date,
@@ -69,7 +68,7 @@ export class Calendar extends React.Component {
 				throw new Error("Forbidden in MODE_YEAR");
 			case MODE_DAY:
 				this.setState({
-					showedMoment: moment(this.state.showedMoment).subtract(1, 'months')
+					showedMoment: moment(this.state.showedMoment).subtract(1, "months")
 				});
 				break;
 			default:
@@ -85,10 +84,9 @@ export class Calendar extends React.Component {
 				break;
 			case MODE_MONTH:
 				throw new Error("Forbidden in MODE_MONTH");
-				break;
 			case MODE_DAY:
 				this.setState({
-					showedMoment: moment(this.state.showedMoment).add(1, 'months')
+					showedMoment: moment(this.state.showedMoment).add(1, "months")
 				});
 				break;
 			default:

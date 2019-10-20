@@ -1,14 +1,12 @@
 import moment from "moment";
 
 import {
-	MATRIX_EMPTY_ELEMENT_VAL,
-	MATRIX_COUNT_ELEMENTS,
-
 	generateWithValue,
 	generateWithFunction,
 	makeDayMatrix,
 	makeYearsMatrix,
-	formatNumberOfMonth
+	formatNumberOfMonth,
+	cssClassHelper
 } from "../src/share/util";
 
 test('generateWithValue(2, 1) to equal [1, 1]', () => {
@@ -43,4 +41,12 @@ test('makeYearsMatrix for current year', () => {
 test('formatNumberOfMonth', () => {
 	expect(formatNumberOfMonth(1)).toBe('01');
 	expect(formatNumberOfMonth(10)).toBe(10);
+});
+
+test('cssClassHelper', () => {
+	expect(cssClassHelper({
+		"a": true,
+		"b": true,
+		"c": false
+	})).toBe("a b");
 });
