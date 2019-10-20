@@ -10,7 +10,8 @@ script:
   - npm run test
   - npm run babel
   - mkdir style
-  - cp src/style/LightTheme.css style/theme.css
+  - cp src/style/LightTheme.css style/theme_light.css
+  - cp src/style/DarkTheme.css style/theme_dark.css
 
 deploy:
   - provider: npm
