@@ -67,10 +67,10 @@ export class CalendarHolder extends React.Component {
 
 	render() {
 		return (
-			<>
+			<div className="atcalendar-holder">
 				{this.children()}
 				{this.state.hide ? null : <Calendar date={this.state.date} onChange={this.onChange.bind(this)} />}
-			</>
+			</div>
 		);
 	}
 
