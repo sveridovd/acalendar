@@ -58,7 +58,8 @@ export class Calendar extends React.Component {
 		}
 	}
 
-	onPrev() {
+	onPrev(e) {
+		e.stopPropagation();
 
 		switch(this.state.mode) {
 			case MODE_YEAR:
@@ -76,7 +77,8 @@ export class Calendar extends React.Component {
 		}
 	}
 
-	onNext() {
+	onNext(e) {
+		e.stopPropagation();
 
 		switch(this.state.mode) {
 			case MODE_YEAR:

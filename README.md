@@ -12,7 +12,7 @@
      * @param {moment} date
     */
     function onChange(date) {
-        console.log(moment.format("DD/MM/YYYY"))
+        console.log(date.format("DD/MM/YYYY"))
     }   
 
     ReactDOM.render(<Calendar 

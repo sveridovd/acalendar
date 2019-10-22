@@ -102,7 +102,10 @@ export function ContentDays({weekdays, daysInMonth, showedMoment, choosenMoment,
                             "atcalendar__dates__item": true,
                             "choosen": showed.isSame(choosenMoment, "day")
                         })}
-                                    onClick={() => onChooseDate(date)}>{date}</li>);
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onChooseDate(date);
+                                    }}>{date}</li>);
                     })
 
                 }
@@ -126,7 +129,10 @@ export function ContentMonths({months, onChooseMonth}) {
                 months.map((month, i) => (
                     <li key={i} className={cssClassHelper({
                         "atcalendar__months__item": true
-                    })} onClick={() => onChooseMonth(month)}>{month}
+                    })} onClick={(e) => {
+                        e.stopPropagation();
+                        onChooseMonth(month);
+                    }}>{month}
                         <sup className="atcalendar__months__item__number-of-month"> {formatNumberOfMonth(i + 1)}</sup>
                     </li>
                 ))
@@ -147,7 +153,10 @@ export function ContentYears({years, onChooseYear}) {
                 years.map((year) => (
                     <li key={year} className={cssClassHelper({
                         "atcalendar__years__item": true,
-                    })} onClick={() => onChooseYear(year)}>{year}</li>
+                    })} onClick={(e) => {
+                        e.stopPropagation();
+                        onChooseYear(year);
+                    }}>{year}</li>
                 ))
             }
         </ul>
