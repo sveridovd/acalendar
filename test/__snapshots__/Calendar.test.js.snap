@@ -350,11 +350,6 @@ exports[`Calendar 2`] = `
   <div
     className="atcalendar__head"
   >
-    <button
-      className="atcalendar__head__prev-month"
-      disabled={true}
-      onClick={[Function]}
-    />
     <div
       className="atcalendar__head__center"
     >
@@ -368,11 +363,6 @@ exports[`Calendar 2`] = `
         </span>
       </div>
     </div>
-    <button
-      className="atcalendar__head__next-month"
-      disabled={true}
-      onClick={[Function]}
-    />
   </div>
   <ul
     className="atcalendar__months"
@@ -728,11 +718,6 @@ exports[`Calendar 4`] = `
   <div
     className="atcalendar__head"
   >
-    <button
-      className="atcalendar__head__prev-month"
-      disabled={true}
-      onClick={[Function]}
-    />
     <div
       className="atcalendar__head__center"
     >
@@ -746,11 +731,6 @@ exports[`Calendar 4`] = `
         </span>
       </div>
     </div>
-    <button
-      className="atcalendar__head__next-month"
-      disabled={true}
-      onClick={[Function]}
-    />
   </div>
   <ul
     className="atcalendar__months"

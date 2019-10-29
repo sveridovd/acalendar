@@ -1,3 +1,5 @@
+import "../style/theme_light.css";
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { Calendar } from "../Calendar.js";

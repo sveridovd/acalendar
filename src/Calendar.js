@@ -26,8 +26,13 @@ export class Calendar extends React.Component {
 
 		let mode = MODE_DAY;
 
-		this.months = moment.months();
-		this.weekdays = moment.weekdays().map(day => day.substring(0, 3));
+		this.months = moment.months().map((month) => {
+			return month.charAt(0).toUpperCase() + month.slice(1);
+		});
+
+		this.weekdays = moment.weekdaysShort().map(weekday => {
+			return weekday.charAt(0).toUpperCase() + weekday.slice(1);
+		});
 
 		this.state = Object.assign({
 			mode,
@@ -149,9 +154,12 @@ export class Calendar extends React.Component {
 					choosenMoment={this.state.choosenMoment} />
 
 				<div className="atcalendar__head">
-					<button className="atcalendar__head__prev-month"
-						disabled={this.state.mode === MODE_MONTH}
-						onClick={this.onPrev.bind(this)}/>
+					{
+						this.state.mode !== MODE_MONTH &&
+						<button className="atcalendar__head__prev-month"
+								disabled={this.state.mode === MODE_MONTH}
+								onClick={this.onPrev.bind(this)}/>
+					}
 
 					<Header
 						mode={this.state.mode}
@@ -160,9 +168,12 @@ export class Calendar extends React.Component {
 						showMode={this.showMode.bind(this)}
 						/>
 
-					<button className="atcalendar__head__next-month"
-						disabled={this.state.mode === MODE_MONTH}
-						onClick={this.onNext.bind(this)}/>
+					{
+						this.state.mode !== MODE_MONTH &&
+						<button className="atcalendar__head__next-month"
+								disabled={this.state.mode === MODE_MONTH}
+								onClick={this.onNext.bind(this)}/>
+					}
 				</div>
 
 				{
