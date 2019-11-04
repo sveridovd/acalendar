@@ -247,3 +247,16 @@
 .clickable:hover {
 	opacity: 0.6;
 }
+
+/* Holder */
+
+.atcalendar-holder__calendar {
+	position: relative;
+}
+
+.atcalendar-holder__calendar .atcalendar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}

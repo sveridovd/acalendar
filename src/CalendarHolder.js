@@ -13,9 +13,20 @@ export class CalendarHolder extends React.Component {
 			hide: true,
 			date:  props.date || null
 		};
+
+		this.onGlobalClick = this.onGlobalClick.bind(this);
+	}
+
+	onGlobalClick(e) {
+		if (e.target.closest && !e.target.closest(".atcalendar-holder")) {
+			this.hide();
+		}
 	}
 
 	componentDidMount() {
+
+		// document.addEventListener("click", this.onGlobalClick);
+
 		holders.push(this);
 		holders.forEach(holder => {
 			holder !== this && holder.hide();
@@ -23,6 +34,7 @@ export class CalendarHolder extends React.Component {
 	}
 
 	componentWillUnmount() {
+		// document.removeEventListener("click", this.onGlobalClick);
 		holders = holders.filter(holder => holder !== this);
 	}
 
@@ -30,21 +42,11 @@ export class CalendarHolder extends React.Component {
 		this.setState({hide: true});
 	}
 
-	onClick() {
+	onClick(e) {
+		e.stopPropagation();
 		this.setState(prev => ({hide: !prev.hide}));
 		holders.forEach(holder => {
 			holder !== this && holder.hide();
-		});
-	}
-
-	children() {
-
-		if (!this.props.children) {
-			return null;
-		}
-
-		return React.cloneElement(this.props.children, {
-			onClick: this.onClick.bind(this)
 		});
 	}
 
@@ -64,12 +66,17 @@ export class CalendarHolder extends React.Component {
 		this.setState(prev => ({hide: !prev.hide}));
 	}
 
+	stop(e) {
+		e.stopPropagation();
+	}
 
 	render() {
 		return (
-			<div className="atcalendar-holder">
-				{this.children()}
+			<div className="atcalendar-holder" onClick={this.onClick.bind(this)}>
+				{this.props.children}
+				<div className="atcalendar-holder__calendar" onClick={this.stop.bind(this)}>
 				{this.state.hide ? null : <Calendar date={this.state.date} onChange={this.onChange.bind(this)} />}
+				</div>
 			</div>
 		);
 	}
@@ -79,5 +86,5 @@ export class CalendarHolder extends React.Component {
 CalendarHolder.propTypes = {
 	date: PropTypes.object,
 	onChange: PropTypes.func,
-	children: PropTypes.arrayOf(PropTypes.element)
+	children: PropTypes.arrayOf(PropTypes.element),
 };

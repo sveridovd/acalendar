@@ -136,7 +136,10 @@ export class Calendar extends React.Component {
 		});
 	}
 
-	showMode(mode) {
+	showMode(mode, e) {
+		if (e) {
+			e.stopPropagation();
+		}
 		this.setState({mode});
 	}
 

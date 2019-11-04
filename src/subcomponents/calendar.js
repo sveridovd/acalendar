@@ -43,9 +43,9 @@ export function Header({mode, months, showedMoment, showMode}) {
                 <>
                     <div className="atcalendar__head__center">
                         <div className="atcalendar__head__center__date">
-                            <span onClick={() => showMode(MODE_MONTH)}
+                            <span onClick={(e) => showMode(MODE_MONTH, e)}
                                   className={"clickable"}>{months[showedMoment.month()]}</span>
-                            <span onClick={() => showMode(MODE_YEAR)}
+                            <span onClick={(e) => showMode(MODE_YEAR, e)}
                                   className={"clickable"}>{showedMoment.year()}</span>
                         </div>
                     </div>
