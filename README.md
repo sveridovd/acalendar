@@ -1,5 +1,8 @@
 ##### ACalendar Usage
 
+![version](https://img.shields.io/github/package-json/v/sveridovd/acalendar?color=%2339aa56)
+![version](https://img.shields.io/github/commit-activity/w/sveridovd/acalendar)
+
 ```javascript
     import "acalendar/style/theme_light.css";
     // OR

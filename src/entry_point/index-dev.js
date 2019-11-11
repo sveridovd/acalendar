@@ -4,6 +4,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Calendar } from "../Calendar.js";
 import { CalendarHolder } from "../CalendarHolder.js";
+import moment from "moment";
+
+moment.locale("ru");
 
 class TestElement extends React.Component {
     render() {
