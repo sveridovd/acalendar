@@ -8,6 +8,9 @@
     import { Calendar } from "acalendar";
     import moment from "moment"; 
 
+    // Setting a locale
+    moment.locale("en");
+
     /**
      * @param {moment} date
     */
