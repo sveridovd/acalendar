@@ -1,4 +1,4 @@
-import "../style/theme_light.css";
+import "../style/theme_dark.css";
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -6,17 +6,9 @@ import { Calendar } from "../Calendar.js";
 import { CalendarHolder } from "../CalendarHolder.js";
 import moment from "moment";
 
-moment.locale("ru");
+moment.locale("en");
 
-class TestElement extends React.Component {
-    render() {
-        return (
-            <Calendar/>
-        );
-    }
-}
-
-ReactDOM.render(<TestElement />, document.getElementById("container"));
+ReactDOM.render(<Calendar/>, document.getElementById("container"));
 
 const h1 = <CalendarHolder>
     <input />

@@ -36,8 +36,8 @@ export class Calendar extends React.Component {
 
 		this.state = Object.assign({
 			mode,
-			showedMoment: (props.date ? moment(props.date) : moment()),
-			choosenMoment: (props.date ? moment(props.date) : null),
+			showedMoment: (props.date ? props.date.clone() : moment()),
+			choosenMoment: (props.date ? props.date.clone() : null),
 
 			// MODE_YEAR
 			yearincr: 0
@@ -74,7 +74,7 @@ export class Calendar extends React.Component {
 				throw new Error("Forbidden in MODE_YEAR");
 			case MODE_DAY:
 				this.setState({
-					showedMoment: moment(this.state.showedMoment).subtract(1, "months")
+					showedMoment: this.state.showedMoment.clone().subtract(1, "months")
 				});
 				break;
 			default:
