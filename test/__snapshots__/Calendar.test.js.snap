@@ -3,6 +3,7 @@
 exports[`Calendar 1`] = `
 <div
   className="atcalendar"
+  onClick={[Function]}
 >
   <div
     className="atcalendar__choosen"
@@ -31,6 +32,7 @@ exports[`Calendar 1`] = `
       className="atcalendar__head__prev-month"
       disabled={false}
       onClick={[Function]}
+      type="button"
     />
     <div
       className="atcalendar__head__center"
@@ -56,6 +58,7 @@ exports[`Calendar 1`] = `
       className="atcalendar__head__next-month"
       disabled={false}
       onClick={[Function]}
+      type="button"
     />
   </div>
   <ul
@@ -326,6 +329,7 @@ exports[`Calendar 1`] = `
 exports[`Calendar 2`] = `
 <div
   className="atcalendar"
+  onClick={[Function]}
 >
   <div
     className="atcalendar__choosen"
@@ -518,6 +522,7 @@ exports[`Calendar 2`] = `
 exports[`Calendar 3`] = `
 <div
   className="atcalendar"
+  onClick={[Function]}
 >
   <div
     className="atcalendar__choosen"
@@ -546,6 +551,7 @@ exports[`Calendar 3`] = `
       className="atcalendar__head__prev-month"
       disabled={false}
       onClick={[Function]}
+      type="button"
     />
     <div
       className="atcalendar__head__center"
@@ -562,6 +568,7 @@ exports[`Calendar 3`] = `
       className="atcalendar__head__next-month"
       disabled={false}
       onClick={[Function]}
+      type="button"
     />
   </div>
   <ul
@@ -694,6 +701,7 @@ exports[`Calendar 3`] = `
 exports[`Calendar 4`] = `
 <div
   className="atcalendar"
+  onClick={[Function]}
 >
   <div
     className="atcalendar__choosen"
@@ -886,6 +894,7 @@ exports[`Calendar 4`] = `
 exports[`Calendar 5`] = `
 <div
   className="atcalendar"
+  onClick={[Function]}
 >
   <div
     className="atcalendar__choosen"
@@ -914,6 +923,7 @@ exports[`Calendar 5`] = `
       className="atcalendar__head__prev-month"
       disabled={false}
       onClick={[Function]}
+      type="button"
     />
     <div
       className="atcalendar__head__center"
@@ -939,6 +949,7 @@ exports[`Calendar 5`] = `
       className="atcalendar__head__next-month"
       disabled={false}
       onClick={[Function]}
+      type="button"
     />
   </div>
   <ul
@@ -1209,6 +1220,7 @@ exports[`Calendar 5`] = `
 exports[`Calendar 6`] = `
 <div
   className="atcalendar"
+  onClick={[Function]}
 >
   <div
     className="atcalendar__choosen"
@@ -1237,6 +1249,7 @@ exports[`Calendar 6`] = `
       className="atcalendar__head__prev-month"
       disabled={false}
       onClick={[Function]}
+      type="button"
     />
     <div
       className="atcalendar__head__center"
@@ -1262,6 +1275,7 @@ exports[`Calendar 6`] = `
       className="atcalendar__head__next-month"
       disabled={false}
       onClick={[Function]}
+      type="button"
     />
   </div>
   <ul
