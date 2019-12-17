@@ -8,6 +8,10 @@ import moment from "moment";
 
 moment.locale("en");
 
+window.addEventListener("click", function(e) {
+    console.log(e);
+});
+
 ReactDOM.render(<Calendar/>, document.getElementById("container"));
 
 const h1 = <CalendarHolder>

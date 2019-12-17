@@ -56,7 +56,7 @@ export function Header({mode, months, showedMoment, showMode}) {
                 mode === MODE_MONTH &&
                 <div className="atcalendar__head__center">
                     <div className="atcalendar__head__center__month">
-                        <span onClick={() => showMode(MODE_YEAR)}>{showedMoment.year()}</span>
+                        <span onClick={(e) => showMode(MODE_YEAR, e)}>{showedMoment.year()}</span>
                     </div>
                 </div>
             }
@@ -102,10 +102,7 @@ export function ContentDays({weekdays, daysInMonth, showedMoment, choosenMoment,
                             "atcalendar__dates__item": true,
                             "choosen": showed.isSame(choosenMoment, "day")
                         })}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        onChooseDate(date);
-                                    }}>{date}</li>);
+                                    onClick={() => onChooseDate(date)}>{date}</li>);
                     })
 
                 }
@@ -129,10 +126,7 @@ export function ContentMonths({months, onChooseMonth}) {
                 months.map((month, i) => (
                     <li key={i} className={cssClassHelper({
                         "atcalendar__months__item": true
-                    })} onClick={(e) => {
-                        e.stopPropagation();
-                        onChooseMonth(month);
-                    }}>{month}
+                    })} onClick={() => onChooseMonth(month)}>{month}
                         <sup className="atcalendar__months__item__number-of-month"> {formatNumberOfMonth(i + 1)}</sup>
                     </li>
                 ))
@@ -153,10 +147,7 @@ export function ContentYears({years, onChooseYear}) {
                 years.map((year) => (
                     <li key={year} className={cssClassHelper({
                         "atcalendar__years__item": true,
-                    })} onClick={(e) => {
-                        e.stopPropagation();
-                        onChooseYear(year);
-                    }}>{year}</li>
+                    })} onClick={() => onChooseYear(year)}>{year}</li>
                 ))
             }
         </ul>

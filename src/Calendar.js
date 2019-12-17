@@ -136,11 +136,12 @@ export class Calendar extends React.Component {
 		});
 	}
 
-	showMode(mode, e) {
-		if (e) {
-			e.stopPropagation();
-		}
+	showMode(mode) {
 		this.setState({mode});
+	}
+
+	mute(e) {
+		e.stopPropagation();
 	}
 
 	render() {
@@ -149,7 +150,7 @@ export class Calendar extends React.Component {
 		const years = this.years(this.state.showedMoment, this.state.yearincr);
 
 		return (
-			<div className="atcalendar">
+			<div className="atcalendar" onClick={this.mute.bind(this)}>
 
 				<Choosen
 					weekdays={this.weekdays}
@@ -160,6 +161,7 @@ export class Calendar extends React.Component {
 					{
 						this.state.mode !== MODE_MONTH &&
 						<button className="atcalendar__head__prev-month"
+								type="button"
 								disabled={this.state.mode === MODE_MONTH}
 								onClick={this.onPrev.bind(this)}/>
 					}
@@ -174,6 +176,7 @@ export class Calendar extends React.Component {
 					{
 						this.state.mode !== MODE_MONTH &&
 						<button className="atcalendar__head__next-month"
+								type="button"
 								disabled={this.state.mode === MODE_MONTH}
 								onClick={this.onNext.bind(this)}/>
 					}
