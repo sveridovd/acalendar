@@ -12,7 +12,7 @@ window.addEventListener("click", function(e) {
     console.log(e);
 });
 
-ReactDOM.render(<Calendar/>, document.getElementById("container"));
+ReactDOM.render(<Calendar/>, document.getElementById("container1"));
 
 const h1 = <CalendarHolder>
     <input />

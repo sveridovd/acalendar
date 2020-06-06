@@ -1,86 +1,56 @@
-import React from "react";
+import React, { useState, useEffect , useRef} from "react";
 import PropTypes from "prop-types";
 import { Calendar } from "./Calendar.js";
+import { Dispatcher } from "./util/Dispatcher.js";
 
-let holders = [];
+const dispatcher = new Dispatcher();
 
-export class CalendarHolder extends React.Component {
 
-	constructor(props) {
-		super(props);
+export function CalendarHolder({children, date, onChange}) {
 
-		this.state = {
-			hide: true,
-			date:  props.date || null
+	const [hide, setHide] = useState(true);
+	const [mdate, setMDate] = useState(date || null);
+	const ref = useRef(null);
+
+	function onShow(details) {
+		if (ref.current !== details.element)
+			setHide(true);
+	}
+
+	useEffect(() => {
+
+		dispatcher.addListener("show", onShow);
+
+		return () => {
+			dispatcher.removeListener("show", onShow);
 		};
 
-		this.onGlobalClick = this.onGlobalClick.bind(this);
-	}
+	}, []);
 
-	onGlobalClick(e) {
-		if (e.target.closest && !e.target.closest(".atcalendar-holder")) {
-			this.hide();
-		}
-	}
+	return (
+		<div ref={ref} className="atcalendar-holder" onClick={e => {
+			e.stopPropagation();
 
-	componentDidMount() {
+			const value = !hide;
+			setHide(value);
 
-		// document.addEventListener("click", this.onGlobalClick);
+			if (hide) {
+				dispatcher.dispatch("show", {element: ref.current});
+			}
 
-		holders.push(this);
-		holders.forEach(holder => {
-			holder !== this && holder.hide();
-		});
-	}
+		}}>
+			{children}
+			<div className="atcalendar-holder__calendar" onClick={e => {
+				e.stopPropagation();
+			}}>
 
-	componentWillUnmount() {
-		// document.removeEventListener("click", this.onGlobalClick);
-		holders = holders.filter(holder => holder !== this);
-	}
-
-	hide() {
-		this.setState({hide: true});
-	}
-
-	onClick(e) {
-		e.stopPropagation();
-		this.setState(prev => ({hide: !prev.hide}));
-		holders.forEach(holder => {
-			holder !== this && holder.hide();
-		});
-	}
-
-	onChange(date) {
-		this.setState({date}, () => {
-			this.props.onChange && this.props.onChange(date);
-		});
-	}
-
-	// for umd
-	setDate(date) {
-		this.setState({date});
-	}
-
-	// for umd
-	toggle() {
-		this.setState(prev => ({hide: !prev.hide}));
-	}
-
-	stop(e) {
-		e.stopPropagation();
-	}
-
-	render() {
-		return (
-			<div className="atcalendar-holder" onClick={this.onClick.bind(this)}>
-				{this.props.children}
-				<div className="atcalendar-holder__calendar" onClick={this.stop.bind(this)}>
-				{this.state.hide ? null : <Calendar date={this.state.date} onChange={this.onChange.bind(this)} />}
-				</div>
+				{hide? null : <Calendar date={mdate} onChange={(date1) => {
+					setMDate(date1);
+					onChange && onChange(date1);
+				}} />}
 			</div>
-		);
-	}
-
+		</div>
+	);
 }
 
 CalendarHolder.propTypes = {
