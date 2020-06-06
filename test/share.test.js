@@ -35,7 +35,7 @@ test('makeYearsMatrix for current year', () => {
 		years.push(i);	
 	}
 
-	expect(makeYearsMatrix(moment("2019", "YYYY"))).toEqual(years.reverse());
+	expect(makeYearsMatrix(moment("2020", "YYYY"))).toEqual(years.reverse());
 });
 
 test('formatNumberOfMonth', () => {
