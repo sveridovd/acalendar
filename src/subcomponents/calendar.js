@@ -7,7 +7,7 @@ import {
     MODE_DAY,
     cssClassHelper,
     formatNumberOfMonth
-} from "../share/util.js";
+} from "../util/util.js";
 
 function momentTypeChecker(propValue) {
     return moment.isMoment(propValue);

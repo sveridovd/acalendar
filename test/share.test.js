@@ -7,7 +7,7 @@ import {
 	makeYearsMatrix,
 	formatNumberOfMonth,
 	cssClassHelper
-} from "../src/share/util";
+} from "../src/util/util";
 
 test('generateWithValue(2, 1) to equal [1, 1]', () => {
 	expect(generateWithValue(2, 1)).toEqual([1,1])

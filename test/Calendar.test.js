@@ -2,7 +2,7 @@ import React from "react";
 import Renderer from "react-test-renderer";
 import moment from "moment";
 import { Calendar } from "../src/Calendar.js";
-import {MODE_MONTH, MODE_YEAR} from "../src/share/util";
+import {MODE_MONTH, MODE_YEAR} from "../src/util/util";
 
 class CalendarTest extends React.Component {
 

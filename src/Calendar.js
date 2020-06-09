@@ -9,7 +9,7 @@ import {
 	MODE_YEAR,
 	MODE_MONTH,
 	MODE_DAY
-} from "./share/util.js";
+} from "./util/util.js";
 
 import {
 	Header,

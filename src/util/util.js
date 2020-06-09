@@ -41,9 +41,12 @@ export function makeDayMatrix(showedMoment) {
 			.concat(generateWithValue(MATRIX_COUNT_ELEMENTS - startDay - countOfDate, MATRIX_EMPTY_ELEMENT_VAL));
 }
 
+
+
 export function makeYearsMatrix(showedMoment) {
 	const currentYear = showedMoment.year();
-	return Array.from(generateWithFunction(20, (i) => i).reverse(), (x) => currentYear - x);
+	return generateWithFunction(20, (i) => i).reverse()
+		.map(x => currentYear - x);
 }
 
 export function formatNumberOfMonth(i) {
