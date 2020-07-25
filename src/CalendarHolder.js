@@ -1,7 +1,7 @@
 import React, { useState, useEffect , useRef} from "react";
 import PropTypes from "prop-types";
 import { Calendar } from "./Calendar.js";
-import { Dispatcher } from "./util/Dispatcher.js";
+import { Dispatcher } from "./Dispatcher.js";
 
 const dispatcher = new Dispatcher();
 

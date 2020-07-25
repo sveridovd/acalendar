@@ -9,7 +9,7 @@ import {
 	MODE_YEAR,
 	MODE_MONTH,
 	MODE_DAY
-} from "./util/util.js";
+} from "./util.js";
 
 import {
 	Header,
@@ -17,7 +17,7 @@ import {
 	ContentDays,
 	ContentMonths,
 	ContentYears
-} from "./subcomponents/calendar.js";
+} from "./components.js";
 
 export class Calendar extends React.Component {
 

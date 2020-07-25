@@ -7,7 +7,7 @@ import {
 	makeYearsMatrix,
 	formatNumberOfMonth,
 	cssClassHelper
-} from "../src/util/util";
+} from "../src/util";
 
 test('generateWithValue(2, 1) to equal [1, 1]', () => {
 	expect(generateWithValue(2, 1)).toEqual([1,1])
@@ -23,7 +23,7 @@ test('makeDayMatrix for 10/2019', () => {
 		6, 7, 8, 9, 10, 11, 12, 13,
 		14, 15, 16, 17, 18, 19, 20,
 		21, 22, 23, 24, 25, 26, 27,
-		28, 29, 30, 31, "-", "-", "-", 
+		28, 29, 30, 31, "-", "-", "-",
 		"-", "-", "-", "-", "-", "-"
 	]);
 });
@@ -32,7 +32,7 @@ test('makeYearsMatrix for current year', () => {
 
 	const years = [];
 	for (var i = moment().year(); i > moment().year() - 20; --i) {
-		years.push(i);	
+		years.push(i);
 	}
 
 	expect(makeYearsMatrix(moment("2020", "YYYY"))).toEqual(years.reverse());

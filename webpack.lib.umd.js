@@ -6,7 +6,7 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
 	mode: "production",
-	entry: path.join(__dirname, "src", "entry_point", "index-umd.js"),
+	entry: path.join(__dirname, "src", "entry_points", "index-umd.js"),
 	output: {
 		path: path.join(__dirname, "build"),
 		filename: "atcalendar.js",
