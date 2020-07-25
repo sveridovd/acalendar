@@ -1,10 +1,9 @@
-import { Component } from "react";
-import { Moment } from "moment";
+declare module "acalendar" {
 
-interface CalendarProps {
-    date: Moment;
-    onChange(date: Moment);
+    interface Calendar {
+        date: moment.Moment;
+        onChange(date: moment.Moment);
+    }
+
+    export {Calendar}
 }
-
-export declare interface Calendar extends Component<CalendarProps> {}
-export declare interface CalendarHolder extends Component<CalendarProps> {}
