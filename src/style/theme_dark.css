@@ -38,7 +38,7 @@
 	color: #e8e8e8;
 }
 
-/* 
+/*
 	HEAD
 */
 
@@ -48,7 +48,7 @@
 	align-items: center;
 	height: 36px;
 
-	padding: 10px 0;	
+	padding: 10px 0;
 }
 
 .atcalendar__head__center {
@@ -121,7 +121,7 @@
 	margin: 2px;
 }
 
-/* 
+/*
 	DATES
 */
 
@@ -138,14 +138,18 @@
 
 .atcalendar__dates__item {
 	width: 30px;
-	line-height: 30px;
-	height: 29px;
-	box-sizing: border-box;
+	height: 30px;
+	line-height: 27px;
 	text-align: center;
+	box-sizing: border-box;
 	cursor: pointer;
 	border-radius: 50%;
-	padding: 1px;
 	margin: 2px;
+}
+
+.atcalendar__dates__item span {
+	display: inline-block;
+	margin: auto;
 }
 
 .atcalendar__dates__item.empty {
@@ -165,7 +169,7 @@
 	background: #6f6f6f;
 }
 
-/* 
+/*
 	MONTHS
 */
 
@@ -204,7 +208,7 @@
 	background: #6f6f6f;
 }
 
-/* 
+/*
 	YEARS
 */
 

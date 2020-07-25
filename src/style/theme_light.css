@@ -140,13 +140,12 @@
 
 .atcalendar__dates__item {
 	width: 30px;
-	line-height: 30px;
-	height: 29px;
-	box-sizing: border-box;
+	height: 30px;
+	line-height: 27px;
 	text-align: center;
+	box-sizing: border-box;
 	cursor: pointer;
 	border-radius: 50%;
-	padding: 1px;
 	margin: 2px;
 }
 

@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
 
-import { Calendar } from "../Calendar.js";
 import { CalendarHolder } from "../CalendarHolder.js";
 
 function determiteAndGet(queryOrElement) {

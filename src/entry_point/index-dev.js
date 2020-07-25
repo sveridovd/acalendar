@@ -1,4 +1,4 @@
-import "../style/theme_dark.css";
+import "../style/theme_light.css";
 
 import React from "react";
 import ReactDOM from "react-dom";
