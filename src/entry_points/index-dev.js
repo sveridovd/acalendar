@@ -2,24 +2,21 @@ import "../style/theme_light.css";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { Calendar } from "../Calendar.js";
-import { CalendarHolder } from "../CalendarHolder.js";
-import moment from "moment";
+import {Calendar} from "../Calendar.js";
+import {CalendarHolder} from "../CalendarHolder.js";
 
-moment.locale("en");
-
-window.addEventListener("click", function(e) {
+window.addEventListener("click", function (e) {
     console.log(e);
 });
 
-ReactDOM.render(<Calendar/>, document.getElementById("container1"));
+ReactDOM.render(<Calendar locale="en"/>, document.getElementById("container1"));
 
 const h1 = <CalendarHolder>
-    <input />
+    <input/>
 </CalendarHolder>;
 
 const h2 = <CalendarHolder>
-    <input />
+    <input/>
 </CalendarHolder>;
 
 ReactDOM.render(h1, document.getElementById("container2"));

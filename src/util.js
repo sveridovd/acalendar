@@ -32,11 +32,11 @@ export function generateWithFunction(count, func) {
 	return array;
 }
 
-export function makeDayMatrix(showedMoment) {
+export function makeDayMatrix(showedMoment, startFromMonday) {
 	const startDay = moment(showedMoment).date(1).day();
 	const countOfDate = showedMoment.daysInMonth();
 
-	return generateWithValue(startDay, MATRIX_EMPTY_ELEMENT_VAL)
+	return generateWithValue(startDay + (startFromMonday ? -1 : 0), MATRIX_EMPTY_ELEMENT_VAL)
 			.concat(generateWithFunction(countOfDate, (i) => i + 1))
 			.concat(generateWithValue(MATRIX_COUNT_ELEMENTS - startDay - countOfDate, MATRIX_EMPTY_ELEMENT_VAL));
 }

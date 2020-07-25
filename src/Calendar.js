@@ -26,13 +26,37 @@ export class Calendar extends React.Component {
 
 		let mode = MODE_DAY;
 
-		this.months = moment.months().map((month) => {
-			return month.charAt(0).toUpperCase() + month.slice(1);
+		// eslint-disable-next-line no-unused-vars
+		this.months = memoize((locale) => {
+			return moment.months().map((month) => {
+				return month.charAt(0).toUpperCase() + month.slice(1);
+			});
 		});
 
-		this.weekdays = moment.weekdaysShort().map(weekday => {
-			return weekday.charAt(0).toUpperCase() + weekday.slice(1);
+		// eslint-disable-next-line no-unused-vars
+		this.weekdays = memoize((locale, startFromMonday) => {
+			let weekdays =  moment.weekdaysShort().map(weekday => {
+				return weekday.charAt(0).toUpperCase() + weekday.slice(1);
+			});
+
+			if (startFromMonday) {
+				let tmp = weekdays[0];
+				weekdays = weekdays.slice(1).concat([tmp]);
+			}
+
+			return weekdays;
 		});
+
+		this.daysInMonth = memoize((showedMoment, startFromMonday) => {
+			return makeDayMatrix(showedMoment, startFromMonday);
+		});
+
+		this.years = memoize((showedMoment, yearincr) => {
+			return makeYearsMatrix(
+				moment(showedMoment).year(showedMoment.year() + yearincr)
+			);
+		});
+
 
 		this.state = Object.assign({
 			mode,
@@ -41,16 +65,6 @@ export class Calendar extends React.Component {
 
 			// MODE_YEAR
 			yearincr: 0
-		});
-
-		this.daysInMonth = memoize((showedMoment) => {
-			return makeDayMatrix(showedMoment);
-		});
-
-		this.years = memoize((showedMoment, yearincr) => {
-			return makeYearsMatrix(
-				moment(showedMoment).year(showedMoment.year() + yearincr)
-			);
 		});
 	}
 
@@ -146,77 +160,93 @@ export class Calendar extends React.Component {
 
 	render() {
 
-		const daysInMonth = this.daysInMonth(this.state.showedMoment);
+	    const oldLocale = moment.locale();
+        moment.locale(this.props.locale);
+
+		const daysInMonth = this.daysInMonth(this.state.showedMoment, this.props.startFromMonday);
 		const years = this.years(this.state.showedMoment, this.state.yearincr);
+		const months = this.months(this.props.locale);
+		const weekdays = this.weekdays(this.props.locale, this.props.startFromMonday);
 
-		return (
-			<div className="atcalendar" onClick={this.mute.bind(this)}>
+		try {
+            return (
+                <div className="atcalendar" onClick={this.mute.bind(this)}>
 
-				<Choosen
-					weekdays={this.weekdays}
-					months={this.months}
-					choosenMoment={this.state.choosenMoment} />
+                    <Choosen
+                        weekdays={weekdays}
+                        months={months}
+                        choosenMoment={this.state.choosenMoment}/>
 
-				<div className="atcalendar__head">
-					{
-						this.state.mode !== MODE_MONTH &&
-						<button className="atcalendar__head__prev-month"
-								type="button"
-								disabled={this.state.mode === MODE_MONTH}
-								onClick={this.onPrev.bind(this)}/>
-					}
+                    <div className="atcalendar__head">
+                        {
+                            this.state.mode !== MODE_MONTH &&
+                            <button className="atcalendar__head__prev-month"
+                                    type="button"
+                                    disabled={this.state.mode === MODE_MONTH}
+                                    onClick={this.onPrev.bind(this)}/>
+                        }
 
-					<Header
-						mode={this.state.mode}
-						months={this.months}
-						showedMoment={this.state.showedMoment}
-						showMode={this.showMode.bind(this)}
-						/>
+                        <Header
+                            mode={this.state.mode}
+                            months={this.months}
+                            showedMoment={this.state.showedMoment}
+                            showMode={this.showMode.bind(this)}
+                        />
 
-					{
-						this.state.mode !== MODE_MONTH &&
-						<button className="atcalendar__head__next-month"
-								type="button"
-								disabled={this.state.mode === MODE_MONTH}
-								onClick={this.onNext.bind(this)}/>
-					}
-				</div>
+                        {
+                            this.state.mode !== MODE_MONTH &&
+                            <button className="atcalendar__head__next-month"
+                                    type="button"
+                                    disabled={this.state.mode === MODE_MONTH}
+                                    onClick={this.onNext.bind(this)}/>
+                        }
+                    </div>
 
-				{
-					this.state.mode === MODE_DAY &&
-						<ContentDays
-							weekdays={this.weekdays}
-							daysInMonth={daysInMonth}
-							showedMoment={this.state.showedMoment}
-							choosenMoment={this.state.choosenMoment}
-							onChooseDate={this.onChoose.bind(this, "date")}
-							/>
-				}
+                    {
+                        this.state.mode === MODE_DAY &&
+                        <ContentDays
+                            weekdays={weekdays}
+                            daysInMonth={daysInMonth}
+                            showedMoment={this.state.showedMoment}
+                            choosenMoment={this.state.choosenMoment}
+                            onChooseDate={this.onChoose.bind(this, "date")}
+                        />
+                    }
 
-				{
-					this.state.mode === MODE_MONTH &&
-					<ContentMonths
-						months={this.months}
-						onChooseMonth={this.onChoose.bind(this, "month")}
-						/>
-				}
+                    {
+                        this.state.mode === MODE_MONTH &&
+                        <ContentMonths
+                            months={months}
+                            onChooseMonth={this.onChoose.bind(this, "month")}
+                        />
+                    }
 
-				{
-					this.state.mode === MODE_YEAR &&
-					<ContentYears
-						years={years}
-						onChooseYear={this.onChoose.bind(this, "year")}
-						/>
-				}
+                    {
+                        this.state.mode === MODE_YEAR &&
+                        <ContentYears
+                            years={years}
+                            onChooseYear={this.onChoose.bind(this, "year")}
+                        />
+                    }
 
-			</div>
-		);
+                </div>
+            );
+        } finally {
+            moment.locale(oldLocale);
+        }
 	}
 
 }
 
+Calendar.defaultProps = {
+	startFromMonday: false,
+	locale: "en",
+};
+
 Calendar.propTypes = {
 	date: PropTypes.object,
-	onChange: PropTypes.func
+	onChange: PropTypes.func,
+	startFromMonday: PropTypes.bool.isRequired,
+	locale: PropTypes.string.isRequired
 };
 
