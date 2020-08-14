@@ -10,7 +10,7 @@ module.exports = {
         filename: "bundle.js",
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dev'),
+        contentBase: path.join(__dirname, "dev"),
         port: 9000
     },
     module: {
@@ -20,17 +20,17 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: [
                     {
-                        loader: 'babel-loader',
+                        loader: "babel-loader",
                         options: {
-                            presets: ['@babel/react', '@babel/preset-env']
+                            presets: ["@babel/react", "@babel/preset-env"]
                         },
                     },
-                    'eslint-loader'
+                    "eslint-loader"
                 ]
             },
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: ["style-loader", "css-loader"],
             }
         ]
     }

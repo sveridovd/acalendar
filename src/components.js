@@ -6,14 +6,14 @@ import {
     MODE_MONTH,
     MODE_DAY,
     cssClassHelper,
-    formatNumberOfMonth
+    formatNumberOfMonth,
 } from "./util.js";
 
 function momentTypeChecker(propValue) {
     return moment.isMoment(propValue);
 }
 
-export function Choosen({weekdays, months, choosenMoment}) {
+export function Choosen({ weekdays, months, choosenMoment }) {
     return (
         <div className="atcalendar__choosen">
             <div className="atcalendar__choosen__icon"/>
@@ -32,10 +32,10 @@ export function Choosen({weekdays, months, choosenMoment}) {
 Choosen.propTypes = {
     weekdays: PropTypes.arrayOf(PropTypes.string).isRequired,
     months: PropTypes.arrayOf(PropTypes.string).isRequired,
-    choosenMoment: PropTypes.objectOf(momentTypeChecker).isRequired
+    choosenMoment: PropTypes.objectOf(momentTypeChecker).isRequired,
 };
 
-export function Header({mode, months, showedMoment, showMode}) {
+export function Header({ mode, months, showedMoment, showMode }) {
     return (
         <>
             {
@@ -78,10 +78,10 @@ Header.propTypes = {
     months: PropTypes.arrayOf(PropTypes.string).isRequired,
     showedMoment: PropTypes.objectOf(momentTypeChecker).isRequired,
     choosenMoment: PropTypes.objectOf(momentTypeChecker),
-    showMode: PropTypes.func.isRequired
+    showMode: PropTypes.func.isRequired,
 };
 
-export function ContentDays({weekdays, daysInMonth, showedMoment, choosenMoment, onChooseDate}) {
+export function ContentDays({ weekdays, daysInMonth, showedMoment, choosenMoment, onChooseDate }) {
     return (
         <>
             <ul className="atcalendar__week-days">
@@ -100,7 +100,7 @@ export function ContentDays({weekdays, daysInMonth, showedMoment, choosenMoment,
                         const showed = moment(showedMoment).date(date);
                         return (<li key={i} className={cssClassHelper({
                             "atcalendar__dates__item": true,
-                            "choosen": showed.isSame(choosenMoment, "day")
+                            "choosen": showed.isSame(choosenMoment, "day"),
                         })}
                                     onClick={() => onChooseDate(date)}>{date}</li>);
                     })
@@ -119,13 +119,13 @@ ContentDays.propTypes = {
     onChooseDate: PropTypes.func.isRequired,
 };
 
-export function ContentMonths({months, onChooseMonth}) {
+export function ContentMonths({ months, onChooseMonth }) {
     return (
         <ul className="atcalendar__months">
             {
                 months.map((month, i) => (
                     <li key={i} className={cssClassHelper({
-                        "atcalendar__months__item": true
+                        "atcalendar__months__item": true,
                     })} onClick={() => onChooseMonth(month)}>{month}
                         <sup className="atcalendar__months__item__number-of-month"> {formatNumberOfMonth(i + 1)}</sup>
                     </li>
@@ -137,10 +137,10 @@ export function ContentMonths({months, onChooseMonth}) {
 
 ContentMonths.propTypes = {
     months: PropTypes.arrayOf(PropTypes.string).isRequired,
-    onChooseMonth: PropTypes.func.isRequired
+    onChooseMonth: PropTypes.func.isRequired,
 };
 
-export function ContentYears({years, onChooseYear}) {
+export function ContentYears({ years, onChooseYear }) {
     return (
         <ul className="atcalendar__years">
             {
@@ -156,5 +156,5 @@ export function ContentYears({years, onChooseYear}) {
 
 ContentYears.propTypes = {
     years: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])).isRequired,
-    onChooseYear: PropTypes.func.isRequired
+    onChooseYear: PropTypes.func.isRequired,
 };

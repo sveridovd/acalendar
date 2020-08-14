@@ -8,7 +8,7 @@ import {
     makeYearsMatrix,
     MODE_YEAR,
     MODE_MONTH,
-    MODE_DAY
+    MODE_DAY,
 } from "./util.js";
 
 import {
@@ -16,7 +16,7 @@ import {
     Choosen,
     ContentDays,
     ContentMonths,
-    ContentYears
+    ContentYears,
 } from "./components.js";
 
 export class Calendar extends React.Component {
@@ -53,7 +53,7 @@ export class Calendar extends React.Component {
 
         this.years = memoize((showedMoment, yearincr) => {
             return makeYearsMatrix(
-                moment(showedMoment).year(showedMoment.year() + yearincr)
+                moment(showedMoment).year(showedMoment.year() + yearincr),
             );
         });
 
@@ -64,7 +64,7 @@ export class Calendar extends React.Component {
             choosenMoment: (props.date ? props.date.clone() : null),
 
             // MODE_YEAR
-            yearincr: 0
+            yearincr: 0,
         });
     }
 
@@ -72,7 +72,7 @@ export class Calendar extends React.Component {
         if (this.props.date && !this.props.date.isSame(prevProps.date, "days")) {
             this.setState({
                 showedMoment: this.props.date,
-                choosenMoment: this.props.date
+                choosenMoment: this.props.date,
             });
         }
     }
@@ -82,13 +82,13 @@ export class Calendar extends React.Component {
 
         switch (this.state.mode) {
             case MODE_YEAR:
-                this.setState(prev => ({yearincr: prev.yearincr - 20}));
+                this.setState(prev => ({ yearincr: prev.yearincr - 20 }));
                 break;
             case MODE_MONTH:
                 throw new Error("Forbidden in MODE_YEAR");
             case MODE_DAY:
                 this.setState({
-                    showedMoment: this.state.showedMoment.clone().subtract(1, "months")
+                    showedMoment: this.state.showedMoment.clone().subtract(1, "months"),
                 });
                 break;
             default:
@@ -101,13 +101,13 @@ export class Calendar extends React.Component {
 
         switch (this.state.mode) {
             case MODE_YEAR:
-                this.setState(prev => ({yearincr: prev.yearincr + 20}));
+                this.setState(prev => ({ yearincr: prev.yearincr + 20 }));
                 break;
             case MODE_MONTH:
                 throw new Error("Forbidden in MODE_MONTH");
             case MODE_DAY:
                 this.setState({
-                    showedMoment: moment(this.state.showedMoment).add(1, "months")
+                    showedMoment: moment(this.state.showedMoment).add(1, "months"),
                 });
                 break;
             default:
@@ -143,7 +143,7 @@ export class Calendar extends React.Component {
                     throw new Error("Type not found");
             }
 
-            return {choosenMoment, showedMoment, mode};
+            return { choosenMoment, showedMoment, mode };
         }, () => {
             this.props.onChange
             && this.props.onChange(moment(this.state.choosenMoment));
@@ -151,7 +151,7 @@ export class Calendar extends React.Component {
     }
 
     showMode(mode) {
-        this.setState({mode});
+        this.setState({ mode });
     }
 
     mute(e) {
@@ -244,8 +244,8 @@ Calendar.defaultProps = {
 
 Calendar.propTypes = {
     date: PropTypes.object,
-    onChange: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
     startFromMonday: PropTypes.bool.isRequired,
-    locale: PropTypes.string.isRequired
+    locale: PropTypes.string.isRequired,
 };
 

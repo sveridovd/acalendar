@@ -1,9 +1,9 @@
 export class Dispatcher {
-    constructor () {
+    constructor() {
         this.events = {};
     }
 
-    addListener (event, callback) {
+    addListener(event, callback) {
         if (typeof callback !== "function") {
             return false;
         }
@@ -14,7 +14,7 @@ export class Dispatcher {
 
         if (this.events[event] === undefined) {
             this.events[event] = {
-                listeners: []
+                listeners: [],
             };
         }
 
@@ -22,7 +22,7 @@ export class Dispatcher {
         this.events[event].listeners.push(callback);
     }
 
-    removeListener (event, callback) {
+    removeListener(event, callback) {
         if (this.events[event] === undefined) {
             return false;
         }
@@ -32,7 +32,7 @@ export class Dispatcher {
         });
     }
 
-    dispatch (event, details) {
+    dispatch(event, details) {
 
         if (this.events[event] === undefined) {
             return false;

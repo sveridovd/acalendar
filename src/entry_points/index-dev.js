@@ -2,10 +2,10 @@ import "../style/theme_light.css";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import {Calendar} from "../Calendar.js";
-import {CalendarHolder} from "../CalendarHolder.js";
+import { Calendar } from "../Calendar.js";
+import { CalendarHolder } from "../CalendarHolder.js";
 
-window.addEventListener("click", function (e) {
+window.addEventListener("click", function(e) {
     console.log(e);
 });
 
