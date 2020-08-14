@@ -1,7 +1,10 @@
 import { Component } from "react";
 import { Moment } from "moment";
 
-declare module 'acalendar' {
+export = acalendar;
+export as namespace acalendar;
+
+declare namespace acalendar {
     export interface OnChange {
         (moment: Moment): void;
     }

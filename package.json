@@ -7,14 +7,18 @@
     "calendar",
     "datetime"
   ],
-  "types": "./src/types.d.ts",
-  "main": "./lib/entry_point/index.js",
+  "files": [
+    "lib/",
+    "LISENCE",
+    "README.md",
+    "index.d.ts"
+  ],
+  "types": "index.d.ts",
+  "main": "./lib/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpack.dev.js",
-    "babel": "babel src/ --out-dir lib/",
-    "build": "webpack --config webpack.lib.umd.js",
-    "test": "jest",
-    "testUpdate": "jest -u"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "babel": "bin/build.sh",
+    "test": "jest"
   },
   "author": "Atomicity <support@atomicity.pro>",
   "license": "MIT",

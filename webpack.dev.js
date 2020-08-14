@@ -1,16 +1,18 @@
 const path = require("path");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 
 module.exports = {
     mode: "development",
-    entry: path.join(__dirname, "src", "entry_points", "index-dev.js"),
+    // eslint-disable-next-line no-undef
+    entry: path.join(__dirname, "src", "dev", "index.js"),
     output: {
-        path: path.join(__dirname, "dev"),
+        // eslint-disable-next-line no-undef
+        path: path.join(__dirname, "build"),
         filename: "bundle.js",
     },
     devServer: {
-        contentBase: path.join(__dirname, "dev"),
+        // eslint-disable-next-line no-undef
+        contentBase: path.join(__dirname, "public"),
         port: 9000,
     },
     module: {
