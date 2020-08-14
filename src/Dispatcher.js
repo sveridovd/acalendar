@@ -4,11 +4,11 @@ export class Dispatcher {
     }
 
     addListener(event, callback) {
-        if (typeof callback !== "function") {
+        if (typeof callback !== 'function') {
             return false;
         }
 
-        if (typeof event !== "string") {
+        if (typeof event !== 'string') {
             return false;
         }
 
@@ -27,13 +27,14 @@ export class Dispatcher {
             return false;
         }
 
-        this.events[event].listeners = this.events[event].listeners.filter(listener => {
-            return listener.toString() !== callback.toString();
-        });
+        this.events[event].listeners = this.events[event].listeners.filter(
+            (listener) => {
+                return listener.toString() !== callback.toString();
+            },
+        );
     }
 
     dispatch(event, details) {
-
         if (this.events[event] === undefined) {
             return false;
         }
