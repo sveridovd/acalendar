@@ -7,7 +7,7 @@ before_script:
   - git config --local user.email "$GIT_EMAIL"
 
 script:
-  - npm run test
+#  - npm run test
   - npm run babel
   - mkdir style
   - cp src/style/theme_light.css style/theme_light.css
