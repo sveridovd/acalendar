@@ -1,4 +1,4 @@
-const path = require("path");;
+const path = require("path");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 
@@ -11,7 +11,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, "dev"),
-        port: 9000
+        port: 9000,
     },
     module: {
         rules: [
@@ -22,16 +22,16 @@ module.exports = {
                     {
                         loader: "babel-loader",
                         options: {
-                            presets: ["@babel/react", "@babel/preset-env"]
+                            presets: ["@babel/react", "@babel/preset-env"],
                         },
                     },
-                    "eslint-loader"
-                ]
+                    "eslint-loader",
+                ],
             },
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
-            }
-        ]
-    }
+            },
+        ],
+    },
 };
