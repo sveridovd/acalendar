@@ -16,5 +16,6 @@ declare namespace acalendar {
         locale?: string
     }
 
-    export class Calendar extends Component<CalendarProps> {}
+    export class Calendar extends Component<CalendarProps> {
+    }
 }
